@@ -3,9 +3,9 @@ app = Flask(__name__)
 
 
 
-@app.route("/")
+@app.route('/index', methods=['GET', 'POST'])
 def mainpage():
-    return render_template("index.html");
+    return render_template("index.html")
 def hello():
     return "Hi"
 
