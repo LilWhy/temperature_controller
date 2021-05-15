@@ -3,7 +3,7 @@ import sys
 
 if not os.getegid() == 0:
     sys.exit('Script must be run as root')
-    
+
 from time import sleep
 from pyA20.gpio import gpio
 from pyA20.gpio import port
@@ -19,6 +19,6 @@ try:
         gpio.output(signal, 1)
         sleep(2)
         gpio.output(signal, 0)
-     exept KeyboardInterrupt:
-        gpio.output(signal, 0)
-   
+
+except KeyboardInterrupt:
+	gpio.output(signal, 0)
