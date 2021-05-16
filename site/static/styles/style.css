@@ -23,7 +23,7 @@
     padding: 0; 
     border-top: 1px solid rgba(0,0,0,.3);
   }
-  .category-wrap li {margin: 12px 0 0 0px;}
+  .category-wrap li {margin: 10%;}
   .category-wrap a {
     text-decoration: none;
     display: block;  
