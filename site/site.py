@@ -16,9 +16,9 @@ def index():
 def start():
      return render_template("models.html")
 
-@app.route("/gaph", methods=['POST', 'GET'])
+@app.route("/graph", methods=['POST', 'GET'])
 def graph():
-     return render_template("gaph.html")
+     return render_template("graph.html")
 
 def cur_temp():
     return "hi"
