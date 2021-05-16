@@ -38,7 +38,7 @@ def temperature():
     time.sleep(1)
     temp += ((resp[1] + resp[0]*256)/8)*0.25
     temp = temp // 3
-    return (temp)
+    return (str(temp))
 
 
 if __name__ == "__main__":
