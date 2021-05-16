@@ -4,19 +4,17 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-@app.route("/index", methods=['GET', 'POST'])
-@app.route("/modes", methods=['GET', 'POST'])
-@app.route("/graph", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def index():
     print(request.method)
     if request.method == 'POST':
         if request.form.get('Start') == 'Start':
            return render_template("index.html")
 
-        if  request.form.get('Gaph') == 'Gaph':
+        elif  request.form.get('Gaph') == 'Gaph':
             return render_template("gaph.html")
 
-        if  request.form.get('Modes') == 'Modes':
+        elif  request.form.get('Modes') == 'Modes':
             return render_template("modes.html")
         else:
                 # pass # unknown
