@@ -6,17 +6,17 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['POST', 'GET'])
-@app.route("/Start", methods=['POST', 'GET'])
+@app.route("/start", methods=['POST', 'GET'])
 def index():
      return render_template("index.html")
 
 
 
-@app.route("/Models", methods=['POST', 'GET'])
+@app.route("/models", methods=['POST', 'GET'])
 def start():
      return render_template("models.html")
 
-@app.route("/Gaph", methods=['POST', 'GET'])
+@app.route("/gaph", methods=['POST', 'GET'])
 def graph():
      return render_template("gaph.html")
 
