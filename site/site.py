@@ -12,11 +12,11 @@ def index():
 
 
 
-@app.route("/Modes ", methods=['POST', 'GET'])
+@app.route("/Modes", methods=['POST', 'GET'])
 def start():
      return render_template("models.html")
 
-@app.route("/Gaph=", methods=['POST', 'GET'])
+@app.route("/Gaph", methods=['POST', 'GET'])
 def graph():
      return render_template("gaph.html")
 
