@@ -13,10 +13,13 @@
                     <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
                 </ul>
               </div>
-        <div class="temperature">
-            текущая температура
-            
-
-        </div>
+              <div id="temperature"></div>
+              <script>
+              let interval = setInterval(async () => {
+                  let answer = await fetch('temperature'),
+                      res = await answer.text();
+                  document.querySelector('#temperature').textContent = "Текущая температура "+res;
+              },1000);
+              </script>
     </body>
 </html>
