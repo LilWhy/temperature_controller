@@ -14,8 +14,7 @@
                     <li><a href="{{ url_for('graph') }}">Страница режимов работы</a></li>
                 </ul>
               </div>
-        <div id="temperature">
-        </div>
+        <div id="temperature"></div>
         <script>
         let interval = setInterval(async () => {
             let answer = await fetch('temperature'),

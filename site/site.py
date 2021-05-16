@@ -26,8 +26,8 @@ def graph():
         return redirect(url_for('graph'))
     return render_template("graph.html")
 
-@app.route("/graph", methods=['POST', 'GET']
-def cur_temp():
+@app.route("/temperature", methods=['POST', 'GET']
+def temperature():
     spi = spidev.SpiDev()
     spi.open(0,0)
 
