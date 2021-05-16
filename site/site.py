@@ -24,10 +24,10 @@ def modes():
 def graph():
     if request.method == 'POST':
         return redirect(url_for('graph'))
-     return render_template("graph.html")
+    return render_template("graph.html")
 
 def cur_temp():
     return "hi"
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True)
