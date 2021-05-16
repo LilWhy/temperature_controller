@@ -14,8 +14,13 @@
                     <li><a href="{{ url_for('graph') }}">Страница режимов работы</a></li>
                 </ul>
               </div>
-        <div class="temperature">
-            Текущая температура
+        <div id="temperature">
         </div>
+        <script>
+        let interval = setInterval(async () => {
+            let answer = await fetch('table.php'),
+                res = await answer.text();
+            document.querySelector('#temperature').textContent = "Текущая температура"+res;
+        },3000);</script>
     </body>
 </html>
