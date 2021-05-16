@@ -6,17 +6,17 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['POST', 'GET'])
-@app.route("/?Start=Начальная+страница ", methods=['POST', 'GET'])
+@app.route("/Start=Начальная+страница ", methods=['POST', 'GET'])
 def index():
      return render_template("index.html")
 
 
 
-@app.route("/?Modes=Страница+режимов+работы ", methods=['POST', 'GET'])
+@app.route("/Modes=Страница+режимов+работы ", methods=['POST', 'GET'])
 def start():
      return render_template("models.html")
 
-@app.route("/?Gaph=График+текущего+состояния ", methods=['POST', 'GET'])
+@app.route("/Gaph=График+текущего+состояния ", methods=['POST', 'GET'])
 def graph():
      return render_template("gaph.html")
 
