@@ -4,16 +4,20 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/index", methods=['GET', 'POST'])
+@app.route("/modes", methods=['GET', 'POST'])
+@app.route("/graph", methods=['GET', 'POST'])
 def index():
     print(request.method)
     if request.method == 'POST':
-        if request.form.get('Encrypt') == 'Encrypt':
-                # pass
-            print("Encrypted")
-        elif  request.form.get('Decrypt') == 'Decrypt':
-                # pass # do something else
-            print("Decrypted")
+        if request.form.get('Start') == 'Start':
+           return render_template("index.html")
+
+        if  request.form.get('Gaph') == 'Gaph':
+            return render_template("gaph.html")
+
+        if  request.form.get('Modes') == 'Modes':
+            return render_template("modes.html")
         else:
                 # pass # unknown
             return render_template("index.html")
@@ -21,6 +25,9 @@ def index():
             # return render_template("index.html")
         print("No Post Back Call")
     return render_template("index.html")
+
+def cur_temp():
+    return "hi"
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=80, debug=True)
