@@ -16,9 +16,9 @@ def index():
 
 @app.route("/modes", methods=['POST', 'GET'])
 def modes():
-        if request.method == 'POST':
-            return redirect(url_for('modes'))
-     return render_template("modes.html")
+    if request.method == 'POST':
+        return redirect(url_for('modes'))
+    return render_template("modes.html")
 
 @app.route("/graph", methods=['POST', 'GET'])
 def graph():
