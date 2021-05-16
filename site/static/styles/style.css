@@ -34,18 +34,11 @@
     position: relative;
     transition: .3s linear;
   }
-  .category-wrap a:after {
-    content:"\f18e";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 5px;
-    color: white;
-    transition: .2s linear;
-  }
   .category-wrap a:hover {
     background: #80C8A0;
     color: white;
   }
 .temperature {
   font-family: FontAwesome;
+  text-align: center;
 }
