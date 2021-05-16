@@ -10,9 +10,9 @@
             <div class="category-wrap">
                 <h3>Меню навигации</h3>
                 <ul>
-                  <li><a href=""> <input type="submit"  value="Start" name="Start"/></a></li>
-                  <li><a href=""><input type="submit" value="Modes" name="Gaph"/></a></li>
-                  <li><a href=""> <input type="submit" value="Gaph" name="Modes"/></a></li>
+                  <li><a href=""><input type="submit" href="{{ url_for('Start') }"  value="Start" name="Start"/></a></li>
+                  <li><a href=""><input type="submit" href="{{ url_for('Gaph') }"  value="Gaph" name="Gaph"/></a></li>
+                  <li><a href=""><input type="submit" href="{{ url_for('Models') }" value="Models" name="Modes"/></a></li>
                 </ul>
               </div>
         </form>

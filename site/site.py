@@ -12,7 +12,7 @@ def index():
 
 
 
-@app.route("/Modes", methods=['POST', 'GET'])
+@app.route("/Models", methods=['POST', 'GET'])
 def start():
      return render_template("models.html")
 
