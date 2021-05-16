@@ -41,6 +41,10 @@
     color: white;
   }
 .temperature {
+  border: 1px solid #FFFFFF; 
+	outline: 1px solid #F05258;
+  background: #F05258;
+	color: #FFFFFF;
   font-family: FontAwesome;
   text-align: center;
 }

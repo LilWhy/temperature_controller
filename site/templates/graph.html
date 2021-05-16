@@ -12,7 +12,7 @@
                   <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
                 </ul>
               </div>
-              <div id="temperature"></div>
+              <div id="temperature" class="temperature"></div>
               <script>
               let interval = setInterval(async () => {
                   let answer = await fetch('temperature'),
