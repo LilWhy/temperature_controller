@@ -5,18 +5,22 @@ app = Flask(__name__)
 
 
 
-@app.route("/", methods=['GET'])
+@app.route("/", methods=['POST'])
+def index():
+     return render_template("index.html")
+     
+@app.route("/Начальная+страница", methods=['GET'])
 def index():
      return render_template("index.html")
 
-@app.route("/Start", methods=['GET'])
-def index():
-     return render_template("start.html")
+@app.route("/Страница+режимов+работы", methods=['GET'])
+def start():
+     return render_template("models.html")
 
-@app.route("/Gaph", methods=['GET'])
-def index():
+@app.route("/График+текущего+состояния", methods=['GET'])
+def graph():
      return render_template("gaph.html")
-     
+
 def cur_temp():
     return "hi"
 
