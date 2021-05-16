@@ -18,7 +18,7 @@
                   let answer = await fetch('temperature'),
                       res = await answer.text();
                   document.querySelector('#temperature').textContent = "Текущая температура "+res;
-              },1000);
+              },300);
               </script>
     </body>
 </html>

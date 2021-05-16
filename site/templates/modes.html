@@ -6,20 +6,19 @@
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
     <body>
-
-            <div class="category-wrap">
-                <h3>Страница режимов работы</h3>
-                <ul>
-                    <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
-                </ul>
-              </div>
-              <div id="temperature"></div>
-              <script>
-              let interval = setInterval(async () => {
-                  let answer = await fetch('temperature'),
-                      res = await answer.text();
-                  document.querySelector('#temperature').textContent = "Текущая температура "+res;
-              },1000);
-              </script>
+    <div class="category-wrap">
+        <h3>Страница режимов работы</h3>
+        <ul>
+            <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
+        </ul>
+    </div>
+    <div id="temperature" class="temperature"></div>
+    <script>
+    let interval = setInterval(async () => {
+        let answer = await fetch('temperature'),
+            res = await answer.text();
+        document.querySelector('#temperature').textContent = "Текущая температура "+res;
+    },300);
+    </script>
     </body>
 </html>
