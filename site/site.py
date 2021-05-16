@@ -33,11 +33,6 @@ def temperature():
 
     resp = spi.readbytes(2)
     temp = ((resp[1] + resp[0]*256)/8)*0.25
-    time.sleep(1)
-    temp += ((resp[1] + resp[0]*256)/8)*0.25
-    time.sleep(1)
-    temp += ((resp[1] + resp[0]*256)/8)*0.25
-    temp = temp // 3
     return (str(temp))
 
 
