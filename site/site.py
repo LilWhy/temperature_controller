@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['POST', 'GET'])
-@app.route("/start", methods=['POST', 'GET'])
 def index():
     return render_template("index.html")
 
@@ -17,12 +16,6 @@ def modes():
     if request.method == 'POST':
         return redirect(url_for('modes'))
     return render_template("modes.html")
-
-@app.route("/graph", methods=['POST', 'GET'])
-def graph():
-    if request.method == 'POST':
-        return redirect(url_for('graph'))
-    return render_template("graph.html")
 
 def cur_temp():
     return "hi"
