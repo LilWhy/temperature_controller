@@ -6,14 +6,13 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=['POST', 'GET'])
-@app.route("/start", methods=['POST', 'GET'])
 def index():
      return render_template("index.html")
 
 
 
 @app.route("/modes", methods=['POST', 'GET'])
-def start():
+def modes():
      return render_template("modes.html")
 
 @app.route("/graph", methods=['POST', 'GET'])
