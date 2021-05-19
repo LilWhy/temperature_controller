@@ -38,6 +38,10 @@ def temperature():
     else:
         return (str(temp))
 
+@app.route("/start_record", methods=['POST', 'GET'])
+def start_record():
+    return none
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True)
