@@ -33,7 +33,10 @@ def temperature():
 
     resp = spi.readbytes(2)
     temp = ((resp[1] + resp[0]*256)/8)*0.25
-    return (str(temp))
+    if (temp <= 1):
+        return ("Термопара не подключена")
+    else
+        return (str(temp))
 
 
 if __name__ == "__main__":

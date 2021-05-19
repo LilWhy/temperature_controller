@@ -11,14 +11,43 @@
                 <ul>
                   <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
                 </ul>
-              </div>
-              <div id="temperature" class="temperature"></div>
-              <script>
-              let interval = setInterval(async () => {
-                  let answer = await fetch('temperature'),
-                      res = await answer.text();
-                  document.querySelector('#temperature').textContent = "Текущая температура "+res;
-              },300);
-              </script>
+            </div>
+            <canvas width=175 height=175></canvas>
+            <script>    
+                let y = x => x*x; // функция
+let z = 40; // масштаб
+let c = document.querySelector('canvas');
+let ctx = c.getContext('2d');
+
+// центровочка
+ctx.translate(c.width/2, c.height/2)
+   
+// сетка
+ctx.beginPath();
+for (let x = -3; x <3; x++) {
+  ctx.moveTo(x*z, -c.height/2);
+  ctx.lineTo(x*z, c.height/2);
+  ctx.moveTo(-c.width/2, x*z);
+  ctx.lineTo(c.width/2, x*z);
+}
+ctx.stroke();
+
+// график функции
+ctx.strokeStyle = "red";
+ctx.lineWidth = 3;
+ctx.beginPath();
+for (var i = -2; i <= 2; i += 0.2) {
+  ctx[i?'lineTo':'moveTo'](i*z, -y(i)*z);
+}
+ctx.stroke();
+            </script>
+            <div id="temperature" class="temperature"></div>
+            <script>
+            let interval = setInterval(async () => {
+                let answer = await fetch('temperature'),
+                    res = await answer.text();
+                document.querySelector('#temperature').textContent = "Текущая температура "+res;
+            },300);
+            </script>
     </body>
 </html>
