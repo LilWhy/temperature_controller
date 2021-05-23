@@ -10,11 +10,17 @@
             <h3>График текущего состояния</h3>
             <ul>
                 <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
-                <li><a href="{{ url_for('start_record') }}"> Начать цикл прокаливания</a></li>
+                <li><a href="{{ url_for('start_record') }}" href="javascript:showhide('graph')"> Начать цикл прокаливания</a></li>
             </ul>
         </div>
 
 		<div id="graph" style="height: 400px;"></div>
+        <script>
+        function showhide(id) {
+            var e = document.getElementById(id);
+            e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+      }
+      </script>
 		<script>
 			document.addEventListener("DOMContentLoaded", function(){
 				// Create liteChart.js Object
