@@ -23,7 +23,6 @@
                 var arrtime = new Array();
                 time = 0
                 let d = new liteChart("chart");
-                d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values":[]});
                 let interval = setInterval(async () => {
                     let answer = await fetch('temperature'),
                     temperature = await answer.text();                
@@ -36,7 +35,7 @@
 
                     // Set legends and values
                     arrtemperature.push(parseInt(temperature))                    
-                    d.addLegend({"stroke": "#F00", "fill": "#fff", "values": arrtemperature});
+                    d.addLegend({ "stroke": "#F00", "fill": "#fff", "values": arrtemperature});
                     time += 5;
                     // Inject chart into DOM object
                     let div = document.getElementById("graph");
