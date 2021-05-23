@@ -24,31 +24,49 @@
            </table>
     </div>
 
-    <script type="text/javascript">
-        function addRow(id){
-            var tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
-            var row = document.createElement("TR")
-            var td1 = document.createElement("TD")
-            td1.appendChild(document.createTextNode("column 1"))
-            var td2 = document.createElement("TD")
-            td2.appendChild (document.createTextNode("column 2"))
-            row.appendChild(td1);
-            row.appendChild(td2);
-            tbody.appendChild(row);
-          }
-        </script>
-        
-        <h1>Добавление строки в таблице с помощью DOM javascript</h1>
-        <p>Скрипт добавляет строку в таблицу, после нажатия на ссылку.</p>
-        
-        <a href="javascript://" onclick="addRow('myTable');return false;">Добавить строку</a>
-        <table id="myTable" cellspacing="0" border="1">
-          <tbody>
-            <tr>
-              <td>row1_column1</td><td>row1_column1</td>
-            </tr>
-          </tbody>
-        </table>
+<table id="myTable">
+    <tbody>
+      <tr>
+        <td>Relationship Type</td>
+        <td>Date of Birth</td>
+        <td>Gender</td>
+      </tr>
+      <tr>
+        <td>Spouse</td>
+        <td>1980-22-03</td>
+        <td>female</td>
+        <td><input type="button" value="Add" onclick="addRow('myTable')"/></td>
+        <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
+      </tr>
+      <tr>
+        <td>Child</td>
+        <td>2008-23-06</td>
+        <td>female</td>
+        <td><input type="button" value="Add" onclick="addRow('myTable')"/></td>
+        <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
+      </tr>
+    </tbody>
+  </table>
+    <script> 
+        function deleteRow(btn) {
+        var row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+        }
+  </script>
+
+<script type="text/javascript">
+    function addRow(id){
+        var tbody = document.getElementById(id).getElementsByTagName("TBODY")[0];
+        var row = document.createElement("TR")
+        var td1 = document.createElement("TD")
+        td1.appendChild(document.createTextNode("column 1"))
+        var td2 = document.createElement("TD")
+        td2.appendChild (document.createTextNode("column 2"))
+        row.appendChild(td1);
+        row.appendChild(td2);
+        tbody.appendChild(row);
+      }
+    </script>
 
     </body>
 </html>
