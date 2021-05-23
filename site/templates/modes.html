@@ -32,7 +32,7 @@
                 var tr = empTable.insertRow(-1);
                 for (var h = 0; h < arrHead.length; h++) {
                     var th = document.createElement('th'); // create table headers
-                    th.setAttribute('width', '30%');
+                    th.setAttribute('width', '35%');
                     th.innerHTML = arrHead[h];
                     tr.appendChild(th);
                 }
@@ -93,7 +93,7 @@
                     // loop through each cell in a row.
                     for (c = 0; c < myTab.rows[row].cells.length; c++) {  
                         var element = myTab.rows.item(row).cells[c];
-                        if (element.childNodes[0].value > 1000 || element.childNodes[0].value < 0){
+                        if (element.childNodes[0].value > 1000 || element.childNodes[0].value <= 0){
                             alert("Введена неподдерживаемая температура")
                             flag = 1
                             break
