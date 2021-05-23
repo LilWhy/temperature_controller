@@ -18,7 +18,7 @@
 		<script>
 			document.addEventListener("DOMContentLoaded", function(){
 				// Create liteChart.js Object
-				let d = new liteChart("chart");
+				
                 var arrtemperature = new Array();
                 var arrtime = new Array();
                 time = 0.0
@@ -27,7 +27,7 @@
                     temperature = await answer.text();                
 
                     // Set labels
-                    
+                    let d = new liteChart("chart");
                     arrtime.push(time);
                     d.setLabels(time);
                     alert(arrtime);
