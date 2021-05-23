@@ -11,21 +11,17 @@
         <ul>
             <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
             <li><a id="addRow" value="Add New Row" onclick="addRow()"> Добавить элемент</a></li>
-            <li><a href="{{ url_for('index') }}"> Сохранить настройки</a></li>
+            <li><a id="bt" value="Submit Data" onclick="submit()"> Сохранить настройки</a></li>
         </ul>
     </div>
         
         <div id="cont"></div>  <!-- the container to add the TABLE -->
-        
-        <p>
-        <input type="button" id="bt" value="Submit Data" onclick="submit()" />
-        </p>
             
         <p id='output'></p>
         
         <script>
             var arrHead = new Array();	// array for header.
-            arrHead = ['', 'Employee Name', 'Designation', 'Age'];
+            arrHead = ['Температура', 'Время прокаливания', ''];
         
             // first create TABLE structure with the headers. 
             function createTable() {
