@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 	<head>
         <meta charset="utf-8">
         <title>Терморегулятор</title>
@@ -10,6 +10,7 @@
             <h3>График текущего состояния</h3>
             <ul>
                 <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
+                <li><a href="{{ url_for('start_record') }}"> Начать цикл прокаливания</a></li>
             </ul>
         </div>
 
@@ -23,7 +24,7 @@
 				d.setLabels([1, 5, 7, 8]);
 
 				// Set legends and values
-				d.addLegend({"name": "Day", "stroke": "#CDDC39", "fill": "#fff", "values": [100, 200, 450, 400]});
+				d.addLegend({"name": "Температура", "stroke": "##F0000", "fill": "#fff", "values": [100, 200, 450, 400]});
 
 				// Inject chart into DOM object
 				let div = document.getElementById("your-id");
