@@ -28,11 +28,7 @@ def graph():
 
 @app.route("/temperature", methods=['POST', 'GET'])
 def temperature():
-    spi = spidev.SpiDev()
-    spi.open(0,0)
-
-    resp = spi.readbytes(2)
-    temp = ((resp[1] + resp[0]*256)/8)*0.25
+    temp = temperature_check()
     if temp <= 1:
         return ("Термопара не подключена")
     else:
@@ -50,7 +46,22 @@ def start_record():
             else:
                 i += 1
                 f.write(data + ' ')
+    start_working()
     return render_template("graph.html")
+
+def temperature_check():
+    spi = spidev.SpiDev()
+    spi.open(0,0)
+
+    resp = spi.readbytes(2)
+    temp = ((resp[1] + resp[0]*256)/8)*0.25
+    return temp
+
+def start_working():
+    f = open('temperature_mode.txt')
+    print(f.read(1))
+
+
 
 
 if __name__ == "__main__":
