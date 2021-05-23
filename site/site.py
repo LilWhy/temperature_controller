@@ -58,8 +58,9 @@ def temperature_check():
     return temp
 
 def start_working():
-    f = open('temperature_mode.txt')
-    print(f.read(0))
+    f = open('temperature_mode.txt', 'r')
+    for i in f:
+        print(i)
 
 
 
