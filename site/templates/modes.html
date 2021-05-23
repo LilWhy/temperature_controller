@@ -5,7 +5,7 @@
         <title>Терморегулятор</title>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
-    <body>
+    <body onload="createTable()">
     <div class="category-wrap">
         <h3>Страница режимов работы</h3>
         <ul>
@@ -14,7 +14,6 @@
             <li><a href="{{ url_for('index') }}"> Сохранить настройки</a></li>
         </ul>
     </div>
-    <div onload="createTable()">
             
         <p>
         <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
@@ -27,7 +26,6 @@
         </p>
             
         <p id='output'></p>
-    </div>
         
         <script>
             var arrHead = new Array();	// array for header.
