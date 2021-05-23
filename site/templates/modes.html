@@ -115,6 +115,7 @@
                     }
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST", '/start_record', true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhr.send(arrValues);
                 document.getElementById('output').innerHTML = arrValues;
                 }
