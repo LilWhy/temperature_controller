@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Терморегулятор</title>
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+        <link rel= "stylesheet" type= "text/css" href="https://fonts.googleapis.com/css?family=Lato:900&display=swap" href= "{{ url_for('static',filename='styles/style.css') }}">
     </head>
     <body>
             <div class="category-wrap">
@@ -19,7 +19,31 @@
                     e.style.display = (e.style.display == 'block') ? 'none' : 'block';
                 }
             </script>
-            <canvas id="graph" width=500px height=300px></canvas>
+            <div style="padding-top: 50px; width: 100%; font-weight: 700; text-align: center;"><span><a href="https://codyshop.ru/litechart-library-for-chart-creation/" target="_blank" style="padding-right: 10px;color: #8bc34a;">Download JS Library (18kB)</a></span><span><a href="https://codyshop.ru/litechart/" target="_blank" style="padding-left: 10px;color: #8bc34a;">Create chart online</a></span></div>
+	
+            <div id="your-id" style="height: 400px;"></div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    // Create liteChart.js Object
+                    let d = new liteChart("chart");
+    
+                    // Set labels
+                    d.setLabels(["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]);
+    
+                    // Set legends and values
+                    d.addLegend({"name": "Day", "stroke": "#CDDC39", "fill": "#fff", "values": [100, 200, 450, 400, 500, 300, 700, 800, 601, 705, 604, 803]});
+                    d.addLegend({"name": "Night", "stroke": "#3b95f7", "fill": "#fff", "values": [200, 150, 240, 180, 150, 240, 230, 300, 200, 150, 270, 200]});
+    
+                    // Inject chart into DOM object
+                    let div = document.getElementById("your-id");
+                    d.inject(div);
+    
+                    // Draw
+                    d.draw();
+                });
+            </script>
+    
+            <script src="lib/liteChart.min.js"></script>
             <script>    
                 let interval = setInterval(async () => {
                     let answer = await fetch('temperature'),
