@@ -46,6 +46,7 @@ def start_record():
             else:
                 i += 1
                 f.write(data + ' ')
+        f.close()
     start_working()
     return render_template("graph.html")
 
@@ -58,9 +59,10 @@ def temperature_check():
     return temp
 
 def start_working():
-    f = open('temperature_mode.txt', 'r')
-    for i in f:
-        print(i)
+
+    with open("temperature_mode.txt", "r") as f:
+        for line in f.readlines():
+            print(line)
 
 
 
