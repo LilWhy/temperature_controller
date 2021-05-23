@@ -32,7 +32,7 @@ def temperature():
     if temp <= 1:
         return ("Термопара не подключена")
     else:
-        return (temp)
+        return (str(temp))
 
 @app.route("/start_record", methods=['POST', 'GET'])
 def start_record():
