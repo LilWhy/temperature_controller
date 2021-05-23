@@ -27,7 +27,7 @@
                     temperature = await answer.text();                
 
                     // Set labels
-                    time += 5
+                    
                     arrtime.push(time);
                     d.setLabels(time);
 
@@ -40,6 +40,7 @@
 
                     // Draw
                     d.draw();
+                    time += 5
                 },5000);
 			});
 		</script>
