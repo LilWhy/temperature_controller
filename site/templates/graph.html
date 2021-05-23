@@ -22,11 +22,11 @@
 				let d = new liteChart("chart");
 
 				// Set labels
-				d.setLabels([]);
+				d.setLabels([1, 2, 3, 4, 5, 6]);
 
 				// Set legends and values
 				//d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": [100, 200, 450, 400]});
-                d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": []});
+                d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": [100, 200, 300, 400, 500, 600]});
 				// Inject chart into DOM object
 				let div = document.getElementById("graph");
 				d.inject(div);
