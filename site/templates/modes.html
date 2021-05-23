@@ -114,6 +114,7 @@
                         }
                     }
                 var xhr = new XMLHttpRequest();
+                xhr.open("POST", '/start_record', true);
                 xhr.send(arrValues);
                 document.getElementById('output').innerHTML = arrValues;
                 }
