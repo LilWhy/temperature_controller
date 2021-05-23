@@ -28,11 +28,11 @@
 
                     // Set labels
                     time += 5
-                    arrtime.add(time);
+                    arrtime.push(time);
                     d.setLabels(time);
 
                     // Set legends and values
-                    arrtemperature.add(parseInt(temperature))                    
+                    arrtemperature.push(parseInt(temperature))                    
                     d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": arrtemperature});
                     // Inject chart into DOM object
                     let div = document.getElementById("graph");
