@@ -117,7 +117,8 @@
                     "array[]" : arrValues,
                 }
                 
-                $.post('/start_record', params)
+                $.post('/controller/MyAction', $.param({ data: arrValues }, true), function(data) {});
+
                 document.getElementById('output').innerHTML = arrValues;
                 }
             }
