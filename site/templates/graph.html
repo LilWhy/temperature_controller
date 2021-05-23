@@ -14,7 +14,7 @@
             </ul>
         </div>
 
-		<div id="your-id" style="height: 400px;"></div>
+		<div id="graph" style="height: 400px;"></div>
 		<script>
 			document.addEventListener("DOMContentLoaded", function(){
 				// Create liteChart.js Object
@@ -27,7 +27,7 @@
 				d.addLegend({"name": "Температура", "stroke": "#F0000", "fill": "#fff", "values": [100, 200, 450, 400]});
 
 				// Inject chart into DOM object
-				let div = document.getElementById("your-id");
+				let div = document.getElementById("graph");
 				d.inject(div);
 
 				// Draw
