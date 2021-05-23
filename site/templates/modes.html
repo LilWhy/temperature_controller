@@ -32,6 +32,7 @@
                 var tr = empTable.insertRow(-1);
                 for (var h = 0; h < arrHead.length; h++) {
                     var th = document.createElement('th'); // create table headers
+                    th.setAttribute('width', '100%');
                     th.innerHTML = arrHead[h];
                     tr.appendChild(th);
                 }
@@ -112,9 +113,6 @@
                     }
                 document.getElementById('output').innerHTML = arrValues;
                 }
-                // The final output.
-               
-                //console.log (arrValues);   // you can see the array values in your browsers console window. Thanks :-) 
             }
         </script>
         
