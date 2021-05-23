@@ -41,7 +41,15 @@ def temperature():
 @app.route("/start_record", methods=['POST', 'GET'])
 def start_record():
     if request.method == 'POST':
-        print(request.get_json()[0])
+        f = open('temperature_mode.txt', 'w')
+        i = 1
+        for data in request.get_json():
+            if i == 2:
+                i = 1
+                f.write(request.get_json()[data] + '\n')
+            else:
+                i += 1
+                f.write(request.get_json()[data] + ' ')
     return render_template("graph.html")
 
 
