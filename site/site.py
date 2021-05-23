@@ -49,7 +49,7 @@ def start_record():
                 f.write(data + '\n')
             else:
                 i += 1
-                f.write(data)
+                f.write(data + ' ')
     return render_template("graph.html")
 
 
