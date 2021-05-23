@@ -46,10 +46,10 @@ def start_record():
         for data in request.get_json():
             if i == 2:
                 i = 1
-                f.write(request.get_json()[data] + '\n')
+                f.write(data + '\n')
             else:
                 i += 1
-                f.write(request.get_json()[data] + ' ')
+                f.write(data)
     return render_template("graph.html")
 
 
