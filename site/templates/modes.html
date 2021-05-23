@@ -92,7 +92,7 @@
                     // loop through each cell in a row.
                     for (c = 0; c < myTab.rows[row].cells.length; c++) {  
                         var element = myTab.rows.item(row).cells[c];
-                        if (parseInt(element.childNodes[0].value) > 1000 || parseInt(element.childNodes[0].value) < 0)
+                        if (element.childNodes[0].value > 1000 || element.childNodes[0].value < 0)
                             console.log("Введена неподдерживаемая температура")
                         else
                             if (element.childNodes[0].getAttribute('type') == 'text') {
