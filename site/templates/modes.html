@@ -86,23 +86,34 @@
             function submit() {
                 var myTab = document.getElementById('empTable');
                 var arrValues = new Array();
-        
+                var flag = 0;
                 // loop through each row of the table.
                 for (row = 1; row < myTab.rows.length - 1; row++) {
                     // loop through each cell in a row.
+
                     for (c = 0; c < myTab.rows[row].cells.length; c++) {  
                         var element = myTab.rows.item(row).cells[c];
-                        if (element.childNodes[0].value > 1000 || element.childNodes[0].value < 0)
-                            console.log("Введена неподдерживаемая температура")
-                        else
+                        if (element.childNodes[0].value > 1000 || element.childNodes[0].value < 0){
+                            alert("Введена неподдерживаемая температура")
+                            flag = 1
+                        }
+                    }
+                }
+                if (flag == 0){
+                 // loop through each row of the table.
+                    for (row = 1; row < myTab.rows.length - 1; row++) {
+                        // loop through each cell in a row.
+                        for (c = 0; c < myTab.rows[row].cells.length; c++) {  
+                            var element = myTab.rows.item(row).cells[c];
                             if (element.childNodes[0].getAttribute('type') == 'text') {
                                 arrValues.push("'" + element.childNodes[0].value + "'");
                             }
+                        }
                     }
-                }
-                
-                // The final output.
                 document.getElementById('output').innerHTML = arrValues;
+                }
+                // The final output.
+               
                 //console.log (arrValues);   // you can see the array values in your browsers console window. Thanks :-) 
             }
         </script>
