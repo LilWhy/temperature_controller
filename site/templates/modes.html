@@ -15,38 +15,20 @@
         </ul>
     </div>
     <div>
-        <table width = 100%>
+        <table id="myTable" width = 100%>
             <tr>
              <th>Температура</th>
              <th>Время нагрева</th>
              <th>Удалить элемент</th>
             </tr>            
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="button" value="Add" onclick="addRow('myTable')"/></td>
+                <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
+            </tr>
            </table>
     </div>
-
-<table id="myTable">
-    <tbody>
-      <tr>
-        <td>Relationship Type</td>
-        <td>Date of Birth</td>
-        <td>Gender</td>
-      </tr>
-      <tr>
-        <td>Spouse</td>
-        <td>1980-22-03</td>
-        <td>female</td>
-        <td><input type="button" value="Add" onclick="addRow('myTable')"/></td>
-        <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
-      </tr>
-      <tr>
-        <td>Child</td>
-        <td>2008-23-06</td>
-        <td>female</td>
-        <td><input type="button" value="Add" onclick="addRow('myTable')"/></td>
-        <td><input type="button" value="Delete" onclick="deleteRow(this)"/></td>
-      </tr>
-    </tbody>
-  </table>
     <script> 
         function deleteRow(btn) {
         var row = btn.parentNode.parentNode;
