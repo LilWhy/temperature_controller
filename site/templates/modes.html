@@ -111,7 +111,7 @@
                         for (c = 0; c < myTab.rows[row].cells.length; c++) {  
                             var element = myTab.rows.item(row).cells[c];
                             if (element.childNodes[0].getAttribute('type') == 'text') {
-                                arrValues.push("'" + element.childNodes[0].value + "'");
+                                arrValues.push(element.childNodes[0].value);
                             }
                         }
                     }
@@ -123,7 +123,6 @@
                                 data: JSON.stringify(arrValues),
                                 contentType: 'application/json; charset=utf-8',
                             });
-                document.getElementById('output').innerHTML = arrValues;
                 }
             }
         </script>
