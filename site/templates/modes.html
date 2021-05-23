@@ -22,12 +22,12 @@
         
         <script>
             var arrHead = new Array();	// array for header.
-            arrHead = ['', 'Температура', 'Время прокаливания'];
+            arrHead = ['Температура', 'Время прокаливания', ''];
         
             // first create TABLE structure with the headers. 
             function createTable() {
                 var empTable = document.createElement('table');
-                empTable.setAttribute('id', 'empTable', 'width', '100%'); // table id.
+                empTable.setAttribute('id', 'empTable'); // table id.
         
                 var tr = empTable.insertRow(-1);
                 for (var h = 0; h < arrHead.length; h++) {
@@ -52,7 +52,7 @@
                     var td = document.createElement('td'); // table definition.
                     td = tr.insertCell(c);
         
-                    if (c == 0) {      // the first column.
+                    if (c == 3) {      // the first column.
                         // add a button in every new row in the first column.
                         var button = document.createElement('input');
         
