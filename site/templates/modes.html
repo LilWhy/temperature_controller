@@ -10,14 +10,10 @@
         <h3>Страница режимов работы</h3>
         <ul>
             <li><a href="{{ url_for('index') }}"> Начальная страница</a></li>
-            <li><a href="{{ url_for('index') }}"> Добавить элемент</a></li>
+            <li><a id="addRow" value="Add New Row" onclick="addRow()"> Добавить элемент</a></li>
             <li><a href="{{ url_for('index') }}"> Сохранить настройки</a></li>
         </ul>
     </div>
-            
-        <p>
-        <input type="button" id="addRow" value="Add New Row" onclick="addRow()" />
-        </p>
         
         <div id="cont"></div>  <!-- the container to add the TABLE -->
         
