@@ -19,19 +19,28 @@
 			document.addEventListener("DOMContentLoaded", function(){
 				// Create liteChart.js Object
 				let d = new liteChart("chart");
+                var arrtemperature = new Array();
+                var arrtime = new Array();
+                time = 0
+                let interval = setInterval(async () => {
+                    let answer = await fetch('temperature'),
+                    temperature = await answer.text();                
 
-				// Set labels
-				d.setLabels([1, 2, 3, 4, 5, 6]);
+                    // Set labels
+                    time += 5
+                    arrtime.add(time);
+                    d.setLabels(time);
 
-				// Set legends and values
-				//d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": [100, 200, 450, 400]});
-                d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": [100, 200, 300, 400, 500, 600]});
-				// Inject chart into DOM object
-				let div = document.getElementById("graph");
-				d.inject(div);
+                    // Set legends and values
+                    arrtemperature.add(parseInt(temperature))                    
+                    d.addLegend({"name": "Температура", "stroke": "#F00", "fill": "#fff", "values": arrValues});
+                    // Inject chart into DOM object
+                    let div = document.getElementById("graph");
+                    d.inject(div);
 
-				// Draw
-				d.draw();
+                    // Draw
+                    d.draw();
+                },5000);
 			});
 		</script>
 
