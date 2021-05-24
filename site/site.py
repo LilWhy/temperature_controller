@@ -64,7 +64,13 @@ def start_working():
         for line in f.readlines():
             records.append(line)
     while (records):
-        print (records.pop(0))
+        cur_mode(records.pop(0))
+
+def cur_mode(line):
+    lst = line.split()
+    print(lst[1])
+    print(lst[2])   
+
 
 
 if __name__ == "__main__":
