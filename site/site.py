@@ -63,7 +63,7 @@ def start_working():
     with open("temperature_mode.txt", "r") as f:
         for line in f.readlines():
             records.append(line)
-    print(records)
+    print(records[0])
 
 
 
