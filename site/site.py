@@ -99,7 +99,7 @@ def start_working():
 def cur_mode(line):
     lst = line.split()
     temperature = int(lst[0])
-    time = int(lst[1])
+    time_set = int(lst[1])
 
     lcd_init()
 
@@ -107,7 +107,7 @@ def cur_mode(line):
     gpio.init()
     gpio.setcfg(signal, gpio.OUTPUT)
 
-    while (time):
+    while (time_set):
         minute = 60
         while (minute):
             cur_temperature = temperature_check()
@@ -119,6 +119,7 @@ def cur_mode(line):
                 gpio.output(signal, 0)
                 minute = minute - 1
             time.sleep(1)
+        time_set = time_set - 1
         
 
 
