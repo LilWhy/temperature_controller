@@ -4,6 +4,9 @@ import time
 import smbus
 import os
 import sys
+from pyA20.gpio import gpio
+from pyA20.gpio import port
+
 
 # Define some device parameters
 I2C_ADDR  = 0x27 # I2C device address
