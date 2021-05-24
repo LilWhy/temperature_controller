@@ -1,6 +1,9 @@
 from flask import Flask, request, url_for, redirect, render_template
 import spidev
 import time
+import smbus
+import os
+import sys
 
 
 app = Flask(__name__)
@@ -53,7 +56,6 @@ def start_record():
 def temperature_check():
     spi = spidev.SpiDev()
     spi.open(0,0)
-
     resp = spi.readbytes(2)
     temp = ((resp[1] + resp[0]*256)/8)*0.25
     return temp
@@ -68,8 +70,74 @@ def start_working():
 
 def cur_mode(line):
     lst = line.split()
-    print(lst[0])
-    print(lst[1])   
+    temperature = int(lst[0])
+    time = int(lst[1])
+
+    lcd_init()
+
+    signal = port.PG7
+    gpio.init()
+    gpio.setcfg(signal, gpio.OUTPUT)
+
+    while (time):
+        minute = 60
+        while (minute):
+            cur_temperature = temperature_check()
+            lcd_string("SET" + temperature,LCD_LINE_1)
+            lcd_string("CUR" + cur_temperature,LCD_LINE_2)
+            if cur_temperature < temperature:
+                gpio.output(signal, 1)
+            else:
+                gpio.output(signal, 0)
+                minute = minute - 1
+            time.sleep(1)
+        
+
+
+def lcd_init():
+    # Initialise display
+    lcd_byte(0x33,LCD_CMD) # 110011 Initialise
+    lcd_byte(0x32,LCD_CMD) # 110010 Initialise
+    lcd_byte(0x06,LCD_CMD) # 000110 Cursor move direction
+    lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off 
+    lcd_byte(0x28,LCD_CMD) # 101000 Data length, number of lines, font size
+    lcd_byte(0x01,LCD_CMD) # 000001 Clear display
+    time.sleep(E_DELAY)  
+
+def lcd_byte(bits, mode):
+    # Send byte to data pins
+    # bits = the data
+    # mode = 1 for data
+    #        0 for command
+
+    bits_high = mode | (bits & 0xF0) | LCD_BACKLIGHT
+    bits_low = mode | ((bits<<4) & 0xF0) | LCD_BACKLIGHT
+
+    # High bits
+    bus.write_byte(I2C_ADDR, bits_high)
+    lcd_toggle_enable(bits_high)
+
+    # Low bits
+    bus.write_byte(I2C_ADDR, bits_low)
+    lcd_toggle_enable(bits_low)
+
+def lcd_toggle_enable(bits):
+    # Toggle enable
+    time.sleep(E_DELAY)
+    bus.write_byte(I2C_ADDR, (bits | ENABLE))
+    time.sleep(E_PULSE)
+    bus.write_byte(I2C_ADDR,(bits & ~ENABLE))
+    time.sleep(E_DELAY)
+
+def lcd_string(message,line):
+    # Send string to display
+
+    message = message.ljust(LCD_WIDTH," ")
+
+    lcd_byte(line, LCD_CMD)
+
+    for i in range(LCD_WIDTH):
+        lcd_byte(ord(message[i]),LCD_CHR)
 
 
 
