@@ -59,13 +59,14 @@ def temperature_check():
     return temp
 
 def start_working():
-
+    records = []
     with open("temperature_mode.txt", "r") as f:
         for line in f.readlines():
-            print(line)
+            records.append(line)
+    print(records)
 
 
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
+    app.run(host='0.0.0.0', port=80, debug=True) 
