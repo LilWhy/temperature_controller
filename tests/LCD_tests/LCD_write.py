@@ -57,15 +57,8 @@ def main():
   while True:
 
     # Send some test
-    lcd_string("",LCD_LINE_1)
-    lcd_string("",LCD_LINE_2)
-
-    time.sleep(3)
-  
-    # Send some more text
-    lcd_string(">         PIZDA",LCD_LINE_1)
-    lcd_string(">        XUY",LCD_LINE_2)
-
+    lcd_string("SET",LCD_LINE_1)
+    lcd_string("CUR",LCD_LINE_2)
     time.sleep(3)
 
 if __name__ == '__main__':

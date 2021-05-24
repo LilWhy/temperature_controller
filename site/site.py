@@ -2,7 +2,6 @@ import smbus
 from flask import Flask, request, url_for, redirect, render_template
 import spidev
 import time
-
 import os
 import sys
 
@@ -107,7 +106,6 @@ def temperature_check():
     return temp
 
 def start_working():
-    lcd_byte(0x01, LCD_CMD)
     records = []
     with open("temperature_mode.txt", "r") as f:
         for line in f.readlines():
