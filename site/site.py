@@ -111,8 +111,8 @@ def cur_mode(line):
         minute = 60
         while (minute):
             cur_temperature = temperature_check()
-            lcd_string("SET" + temperature,LCD_LINE_1)
-            lcd_string("CUR" + cur_temperature,LCD_LINE_2)
+            lcd_string("SET" + "{}".format(temperature),LCD_LINE_1)
+            lcd_string("CUR" + "{}".format(cur_temperature),LCD_LINE_2)
             if cur_temperature < temperature:
                 gpio.output(signal, 1)
             else:
