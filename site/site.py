@@ -2,8 +2,6 @@ from flask import Flask, request, url_for, redirect, render_template
 import spidev
 import time
 import smbus
-import os
-import sys
 from pyA20.gpio import gpio
 from pyA20.gpio import port
 
@@ -18,8 +16,8 @@ LCD_CMD = 0 # Mode - Sending command
 
 LCD_LINE_1 = 0x80 # LCD RAM address for the 1st line
 LCD_LINE_2 = 0xC0 # LCD RAM address for the 2nd line
-LCD_LINE_3 = 0x94 # LCD RAM address for the 3rd line
-LCD_LINE_4 = 0xD4 # LCD RAM address for the 4th line
+#LCD_LINE_3 = 0x94 # LCD RAM address for the 3rd line
+#LCD_LINE_4 = 0xD4 # LCD RAM address for the 4th line
 
 LCD_BACKLIGHT  = 0x08  # On
 #LCD_BACKLIGHT = 0x00  # Off
@@ -31,9 +29,9 @@ E_PULSE = 0.0005
 E_DELAY = 0.0005
 
 #Open I2C interface
-bus = smbus.SMBus(0)  # Rev 1 Pi uses 0 (and Orange PI PC, for pins 3 and 5)
+bus = smbus.SMBus(0)  
 
-app = Flask(__name__)
+app = Flask(temperature_controller)
 
 
 
@@ -111,8 +109,8 @@ def cur_mode(line):
         minute = 60
         while (minute):
             cur_temperature = temperature_check()
-            lcd_string("SET" + "{}".format(temperature),LCD_LINE_1)
-            lcd_string("CUR" + "{}".format(cur_temperature),LCD_LINE_2)
+            lcd_string("SET " + "{}".format(temperature),LCD_LINE_1)
+            lcd_string("CUR " + "{}".format(cur_temperature),LCD_LINE_2)
             if cur_temperature < temperature:
                 gpio.output(signal, 1)
             else:
@@ -170,5 +168,5 @@ def lcd_string(message,line):
 
 
 
-if __name__ == "__main__":
+if temperature_controller == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) 
